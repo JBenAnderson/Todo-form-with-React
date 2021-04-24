@@ -23,10 +23,18 @@ function App() {
     setTodos(newTodos);
     setValue("");
   };
+
+  removeTodo = (e) => {
+    const index = Number(e.target.id);
+    let temp = [...todos];
+    temp.splice(index, 1);
+    setTodos(temp);
+  };
+
   return (
     <>
       {todos.map((todo, i) => (
-        <div className="todo" key={i}>
+        <div className="todo" key={i} id={i} onClick={removeTodo}>
           {todo.text}
         </div>
       ))}
