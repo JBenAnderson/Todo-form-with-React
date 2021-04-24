@@ -14,17 +14,11 @@ function App() {
     },
   ]);
 
-  const [value, setValue] = React.useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!value) return;
-    const newTodos = [...todos, { text: value, isCompleted: false }];
+  const addTodo = (text) => {
+    const newTodos = [...todos, { text: text, isCompleted: false }];
     setTodos(newTodos);
-    setValue("");
   };
-
-  removeTodo = (e) => {
+  const removeTodo = (e) => {
     const index = Number(e.target.id);
     let temp = [...todos];
     temp.splice(index, 1);
@@ -38,15 +32,7 @@ function App() {
           {todo.text}
         </div>
       ))}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          className="input"
-          value={value}
-          placeholder="Add Todo..."
-          onChange={(e) => setValue(e.target.value)}
-        ></input>
-      </form>
+      <TodoForm addTodo={addTodo} />
     </>
   );
 }
