@@ -1,21 +1,21 @@
 function App() {
   const [todos, setTodos] = React.useState([
     {
-      text: "learn react",
+      text: "buy cat food",
       isCompleted: false,
     },
     {
-      text: "meet friend for lunch",
+      text: "mow the lawn",
       isCompleted: false,
     },
     {
-      text: "build todo app",
+      text: "clean the basement",
       isCompleted: false,
     },
   ]);
 
   const addTodo = (text) => {
-    const newTodos = [...todos, { text: text, isCompleted: false }];
+    const newTodos = [...todos, { text, isCompleted: false }];
     setTodos(newTodos);
   };
   const removeTodo = (index) => {
@@ -25,17 +25,14 @@ function App() {
   };
 
   return (
-    <>
-      <div className="app">
-        <div className="todo-list">
-          {todos.map((todo, i) => (
-            <Todo index={i} key={i} id={i} todo={todo} remove={removeTodo} />
-          ))}
-        </div>
+    <div className="app">
+      <div className="todo-list">
+        {todos.map((todo, i) => (
+          <Todo key={i} index={i} todo={todo} remove={removeTodo} />
+        ))}
+        <TodoForm addTodo={addTodo} />
       </div>
-
-      <TodoForm addTodo={addTodo} />
-    </>
+    </div>
   );
 }
 
