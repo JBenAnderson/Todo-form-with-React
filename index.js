@@ -26,9 +26,14 @@ function App() {
 
   return (
     <>
-      {todos.map((todo, i) => (
-        <Todo index={i} key={i} id={i} todo={todo} remove={removeTodo} />
-      ))}
+      <div className="app">
+        <div className="todo-list">
+          {todos.map((todo, i) => (
+            <Todo index={i} key={i} id={i} todo={todo} remove={removeTodo} />
+          ))}
+        </div>
+      </div>
+
       <TodoForm addTodo={addTodo} />
     </>
   );
