@@ -10,8 +10,8 @@ code {
 }
 
 .app {
-  background: #209cee;
-  padding: 30px;
+  background: #3b1ea7;
+  padding: 10px;
   height: 100vh;
 }
 
@@ -43,4 +43,9 @@ code {
   padding: 1rem;
   height: 2.25em;
   font-size: 24px;
+}
+
+.date {
+  border-width: 2px;
+  border-color: solid black;
 }
